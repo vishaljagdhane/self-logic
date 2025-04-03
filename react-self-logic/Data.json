@@ -1,0 +1,134 @@
+{
+  "posts": [
+    { "id": 1, "title": "First Post", "body": "This is the body of the first post" }
+  ],
+  "users": [
+    { "id": 1, "name": "Jane Doe" }
+  ],
+  "userModuleData": [
+    { "label": "Create User", "value": "create-user" },
+    { "label": "Update User", "value": "update-user" },
+    { "label": "Delete User", "value": "delete-user" }
+  ],
+  "integrationMenuItems": [
+    { "label": "Create Database", "value": "create-database" }
+  ],
+  "adminMenuItems": [
+    { "label": "Create User", "value": "create-user" },
+    { "label": "Update User", "value": "update-user" },
+    { "label": "Delete User", "value": "delete-user" }
+  ],
+  "TypeOfVendor": [
+    { "type": "Raw Material", "value": "rawmaterial" },
+    { "type": "Grocery", "value": "grocery" },
+    { "type": "Electronics", "value": "electronics" },
+    { "type": "Furniture", "value": "furniture" },
+    { "type": "Clothing", "value": "clothing" }
+  ]
+  ,
+ "CountryData": [
+    { "label": "India", "id": 1 },
+    { "label": "USA", "id": 2 },
+    { "label": "England", "id": 3 },
+    { "label": "China", "id": 4 },
+    { "label": "Australia", "id": 5 },
+    { "label": "Germany", "id": 6 }
+  ],
+  
+  "IndiaState": [
+    { "label": "Andhra Pradesh", "id": 1 },
+    { "label": "Arunachal Pradesh", "id": 2 },
+    { "label": "Assam", "id": 3 },
+    { "label": "Bihar", "id": 4 },
+    { "label": "Chhattisgarh", "id": 5 },
+    { "label": "Goa", "id": 6 },
+    { "label": "Gujarat", "id": 7 },
+    { "label": "Haryana", "id": 8 },
+    { "label": "Himachal Pradesh", "id": 9 },
+    { "label": "Jharkhand", "id": 10 },
+    { "label": "Karnataka", "id": 11 },
+    { "label": "Kerala", "id": 12 },
+    { "label": "Madhya Pradesh", "id": 13 },
+    { "label": "Maharashtra", "id": 14 },
+    { "label": "Manipur", "id": 15 },
+    { "label": "Meghalaya", "id": 16 },
+    { "label": "Mizoram", "id": 17 },
+    { "label": "Nagaland", "id": 18 },
+    { "label": "Odisha", "id": 19 },
+    { "label": "Punjab", "id": 20 },
+    { "label": "Rajasthan", "id": 21 },
+    { "label": "Sikkim", "id": 22 },
+    { "label": "Tamil Nadu", "id": 23 },
+    { "label": "Telangana", "id": 24 },
+    { "label": "Tripura", "id": 25 },
+    { "label": "Uttar Pradesh", "id": 26 },
+    { "label": "Uttarakhand", "id": 27 },
+    { "label": "West Bengal", "id": 28 }
+  ],
+
+  "USAState": [
+    { "label": "California", "id": 1 },
+    { "label": "Texas", "id": 2 },
+    { "label": "Florida", "id": 3 },
+    { "label": "New York", "id": 4 },
+    { "label": "Pennsylvania", "id": 5 },
+    { "label": "Illinois", "id": 6 },
+    { "label": "Ohio", "id": 7 },
+    { "label": "Georgia", "id": 8 },
+    { "label": "North Carolina", "id": 9 },
+    { "label": "Michigan", "id": 10 },
+    { "label": "New Jersey", "id": 11 },
+    { "label": "Virginia", "id": 12 },
+    { "label": "Washington", "id": 13 },
+    { "label": "Arizona", "id": 14 },
+    { "label": "Massachusetts", "id": 15 },
+    { "label": "Tennessee", "id": 16 },
+    { "label": "Indiana", "id": 17 },
+    { "label": "Missouri", "id": 18 },
+    { "label": "Maryland", "id": 19 },
+    { "label": "Wisconsin", "id": 20 }
+  ],
+
+  "EnglandState": [
+    { "label": "England", "id": 1 }
+  ],
+
+  "ChinaState": [
+    { "label": "Beijing", "id": 1 },
+    { "label": "Shanghai", "id": 2 },
+    { "label": "Guangdong", "id": 3 },
+    { "label": "Shandong", "id": 4 },
+    { "label": "Jiangsu", "id": 5 },
+    { "label": "Zhejiang", "id": 6 },
+    { "label": "Henan", "id": 7 },
+    { "label": "Hunan", "id": 8 },
+    { "label": "Sichuan", "id": 9 },
+    { "label": "Hebei", "id": 10 },
+    { "label": "Liaoning", "id": 11 }
+  ],
+
+  "AustraliaState": [
+    { "label": "New South Wales", "id": 1 },
+    { "label": "Victoria", "id": 2 },
+    { "label": "Queensland", "id": 3 },
+    { "label": "Western Australia", "id": 4 },
+    { "label": "South Australia", "id": 5 },
+    { "label": "Tasmania", "id": 6 },
+    { "label": "Australian Capital Territory", "id": 7 },
+    { "label": "Northern Territory", "id": 8 }
+  ],
+
+  "GermanyState": [
+    { "label": "Bavaria", "id": 1 },
+    { "label": "Berlin", "id": 2 },
+    { "label": "Hamburg", "id": 3 },
+    { "label": "North Rhine-Westphalia", "id": 4 },
+    { "label": "Hesse", "id": 5 },
+    { "label": "Lower Saxony", "id": 6 },
+    { "label": "Saxony", "id": 7 },
+    { "label": "Rhineland-Palatinate", "id": 8 },
+    { "label": "Thuringia", "id": 9 },
+    { "label": "Baden-Württemberg", "id": 10 },
+    { "label": "Brandenburg", "id": 11 }
+  ]
+}

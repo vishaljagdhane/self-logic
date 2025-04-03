@@ -1,0 +1,127 @@
+  import React, { useEffect, useState } from "react";
+  import { Box, Drawer, List, ListItem, ListItemText, Typography, IconButton } from "@mui/material";
+  import NotificationsIcon from '@mui/icons-material/Notifications';
+  import ApiServices from "../ApiServices/ApiServices";
+
+  export default function ApplicationLeftSideBar({ onMenuItemClick, selectedModel, searchTerm }) {
+    const { getuserListData, getadminMenuItems, getintegrationMenuItems } = ApiServices();
+    const [userMenuItems, setUserMenuItems] = useState([]);
+    const [adminMenuItems, setAdminMenuItems] = useState([]);
+    const [integrationMenuItems, setIntegrationMenuItems] = useState([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        await GetUserListData();
+        await GetadminMenuItems();
+        await GetintegrationMenuItems();
+      };
+      fetchData();
+    }, []);
+
+    // Filter the menu items based on the search term
+    const filterMenuItems = (menuItems) => {
+      if (!searchTerm) return menuItems;
+      return menuItems.filter(item => item.label.toLowerCase().includes(searchTerm.toLowerCase()));
+    };
+
+    const getMenuItemsForModule = () => {
+      switch (selectedModel) {
+        case "Integration Module":
+          return filterMenuItems(integrationMenuItems);
+        case "User Module":
+          return filterMenuItems(userMenuItems);
+        case "Admin Module":
+        default:
+          return filterMenuItems(adminMenuItems);
+      }
+    };
+
+    const menuItems = getMenuItemsForModule();
+
+    return (
+      <Drawer
+        sx={{
+          width: 240,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: 240,
+            height: "100vh",
+            backgroundColor: "#fff",
+            borderRight: '1px solid #ddd',
+          },
+        }}
+        variant="permanent"
+        anchor="left"
+      >
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+          {/* Title and Logo Section */}
+          <Box sx={{
+            padding: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: '#1976d2',
+            color: '#fff',
+          }}>
+            <Typography variant="h6" sx={{ flexGrow: 1, textAlign: 'center' }}>
+              Welcome to Data Store
+            </Typography>
+          </Box>
+
+          {/* Menu Section */}
+          <Box sx={{ flex: 1, overflowY: 'auto' }}>
+            <List>
+              {menuItems.length > 0 ? (
+                menuItems.map((item) => (
+                  <ListItem
+                    button
+                    key={item.value}
+                    onClick={() => onMenuItemClick(item.value)}
+                    sx={{
+                      backgroundColor: selectedModel === item.value ? "#e3f2fd" : "transparent",
+                      '&:hover': { backgroundColor: '#e3f2fd' },
+                      borderRadius: 1,
+                      marginBottom: 1,
+                    }}
+                  >
+                    <ListItemText
+                      primary={item.label}
+                      sx={{
+                        fontWeight: selectedModel === item.value ? 'bold' : 'normal',
+                        color: selectedModel === item.value ? '#1976d2' : 'inherit',
+                      }}
+                    />
+                  </ListItem>
+                ))
+              ) : (
+                <Typography variant="body2" sx={{ padding: 2, textAlign: 'center' }}>
+                  No menu items available.
+                </Typography>
+              )}
+            </List>
+          </Box>
+
+          {/* Date, Time, and Notification Section */}
+          <Box sx={{
+            padding: 2,
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: '#1976d2',
+            color: '#fff',
+            borderTop: '1px solid #ddd',
+          }}>
+            <Typography variant="body2" sx={{ flexGrow: 1 }}>
+              {`${new Date().toLocaleString('default', { weekday: 'long' })}, ${new Date().toLocaleDateString()}`}
+            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Typography variant="body2" sx={{ marginRight: 1 }}>
+                {new Date().toLocaleTimeString()}
+              </Typography>
+              <IconButton color="primary" sx={{ '&:hover': { backgroundColor: 'transparent' } }}>
+                <NotificationsIcon sx={{ color: '#fff' }} />
+              </IconButton>
+            </Box>
+          </Box>
+        </Box>
+      </Drawer>
+    );
+  }

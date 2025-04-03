@@ -1,0 +1,49 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .square {
+    width: 40px;
+    height: 40px;
+    background-color: #3498db;
+    animation: moveSquare 1.5s infinite ease-in-out;
+  }
+  
+  /* Keyframes for square movement */
+  @keyframes moveSquare {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(40px, 0);
+    }
+    50% {
+      transform: translate(40px, 40px);
+    }
+    75% {
+      transform: translate(0, 40px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  

@@ -2,57 +2,52 @@ import React, { useState } from "react";
 import ApplicationTopBar from "./ApplicationTopBar";
 import ApplicationLeftSideBar from "./ApplicationLeftSideBar";
 import CreateDatabaseComponent from "../Pages/CreateDatabaseComponent";
-import {Box} from '@mui/material'
+import { Box } from '@mui/material';
+import UserInfromationDrawerRightSide from "./UserInfromationDrawerRightSide";
+import CreateVendor from "../Pages/CreateVendor";
 
-export default function ApplicationDashbaord() {
+export default function ApplicationDashboard() {
   const [openMenu, setOpenMenu] = useState(false);
-  const [selectedModel, setSelectedModel] = useState('Intregation Module');
+  const [selectedModel, setSelectedModel] = useState("Integration Module");
   const [contentAdmin, setContentAdmin] = useState("home");
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [rightOpen, setRightOpen] = useState(false);
 
   const MenuBarOpen = () => {
     setOpenMenu(!openMenu);
   };
 
-  const RenderContentAdminMoudel = () => {
+  const RenderContentAdminModule = () => {
     switch (contentAdmin) {
       case "home":
         return <h1>Home</h1>;
-      case "create-datbase":
+      case "create-database":
         return <CreateDatabaseComponent />;
-      case "create-user":
-        return <h1>Create User</h1>;
-      case "update-user":
-        return <h1>Update User</h1>;
-      case "delete-user":
-        return <h1>Delete User</h1>;
-      case "create-table":
-        return <h1>Create Table</h1>;
-      case "edit-table":
-        return <h1>Edit Table</h1>;
-      case "delete-table":
-        return <h1>Delete Table</h1>;
-      case "create-dashboard":
-        return <h1>Create Dashboard</h1>;
-      case "user-dashboard":
-        return <h1>User Dashboard</h1>;
-      case "profile":
-        return <h1>Profile</h1>;
+      case "create-vendor":
+        return <CreateVendor />;
+      // Add other cases as required
       default:
         return <h1>Page Not Found</h1>;
     }
   };
-  const handleModelChange = (event) => {
-    setSelectedModel(event.target.value);
+
+  const handleModelChange = (newModel) => {
+    setSelectedModel(newModel); // Update selected model
   };
 
-  const handleSearch = (term) => {
-    setSearchTerm(term); // Update the search term
+  const rightSideDrawer = () => {
+    setRightOpen(!rightOpen);
+  };
+
+  const handleSearch = (searchTerm) => {
+    const menuItem = searchTerm.toLowerCase();
+    setContentAdmin(menuItem);
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", height: "auto" }}>
       <Box sx={{ display: "flex", flex: 1, overflow: "hidden" }}>
+        {/* Left sidebar */}
         {openMenu && (
           <ApplicationLeftSideBar
             onMenuItemClick={setContentAdmin}
@@ -63,12 +58,13 @@ export default function ApplicationDashbaord() {
 
         <Box
           sx={{
-            flexGrow: 1,
-            marginLeft: openMenu ? "5px" : "0",
-            width: openMenu ? "100%" : "100%",
-            transition: "margin 0.3s ease, width 0.3s ease",
+            position: "relative",
             display: "flex",
             flexDirection: "column",
+            flexGrow: 1, // Main content takes up the remaining space
+            marginLeft: openMenu ? "10px" : "0", // Left sidebar margin
+            transition: "margin 0.3s ease", // Smooth transition for layout changes
+            width: "100%", // Ensure content area always spans full width
           }}
         >
           <ApplicationTopBar
@@ -76,9 +72,12 @@ export default function ApplicationDashbaord() {
             selectedModel={selectedModel}
             handleModelChange={handleModelChange}
             onSearch={handleSearch} // Pass search handler to top bar
+            rightSideDrawer={rightSideDrawer}
+            
           />
-          <Box sx={{ background: "#EFF3F8", padding: "20px" }}>
-            {RenderContentAdminMoudel()}
+          {rightOpen && <UserInfromationDrawerRightSide />}
+          <Box sx={{ background: "#EFF3F8", padding: "20px", flexGrow: 1 }}>
+            {RenderContentAdminModule()}
           </Box>
         </Box>
       </Box>

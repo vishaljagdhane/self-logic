@@ -1,0 +1,20 @@
+npm install json-server --save-dev
+db.json 
+{
+  "posts": [
+    { "id": 1, "title": "First Post", "body": "This is the body of the first post" }
+  ],
+  "users": [
+    { "id": 1, "name": "Jane Doe" }
+  ]
+}
+json.file 
+"scripts": {
+  "start": "react-scripts start",
+  "server": "json-server --watch Data.json --port 5000"
+}
+ 
+
+ run json server 
+
+ npm run server

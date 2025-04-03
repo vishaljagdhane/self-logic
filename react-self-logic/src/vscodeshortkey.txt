@@ -1,0 +1,31 @@
+General Navigation & Editing:
+Ctrl+Q: Quick Launch (search for commands, files, etc.)
+Ctrl+N: New File
+Ctrl+S: Save
+Ctrl+Shift+S: Save All
+Ctrl+Z: Undo
+Ctrl+Y: Redo
+Ctrl+X: Cut
+Ctrl+C: Copy
+Ctrl+V: Paste
+Ctrl+F: Find
+Ctrl+H: Replace
+Ctrl+K, Ctrl+D: Format Document
+Ctrl+Shift+K: Delete Line
+Ctrl+Enter: Insert Line Below
+Ctrl+Shift+Enter: Insert Line Above
+Alt+↑/↓: Move Line Up/Down
+Ctrl+Shift+L: Select All Occurrences
+Ctrl+F2: Select All Occurrences of Current Word
+F2: Rename
+Ctrl+Shift+P: Show Command Palette
+Ctrl+Shift+A: Add New Item 
+Debugging & Testing:
+F5: Start Debugging
+Shift+F5: Stop Debugging
+F9: Toggle Breakpoint
+F10: Step Over
+F11: Step Into
+Shift+F11: Step Out
+Ctrl+R, Ctrl+A: Debug All Tests
+Ctrl+R, A: Run All Tests 
